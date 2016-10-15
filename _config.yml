@@ -1,8 +1,11 @@
 # Site settings
 title:       The Land of The Exile
 email:       exiledkingcc@gmail.com
+author:      exiledkingcc
 description: "a simple blog powered by Jekyll"
-url:         "http://exiledkingcc.github.io"
+baseurl:     ""
+url:         "https://exiledkingcc.github.io"
+date_format: "%Y-%m-%d"
 
 # Google services
 google_verification:
