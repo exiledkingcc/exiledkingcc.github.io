@@ -16,148 +16,185 @@
 <div>
     <div id="chart1" class="mychart" style="width:95%; height:600px;"></div>
     <div id="chart2" class="mychart" style="width:95%; height:600px;"></div>
+    <div id="chart3" class="mychart" style="width:95%; height:600px;"></div>
+    <div id="chart4" class="mychart" style="width:95%; height:600px;"></div>
 </div>
 
 <script src="https://code.highcharts.com/highcharts.src.js"></script>
 <script type="text/javascript">
-var HUBEI_DATA = {
-    days: [
-        "1.20", "1.21", "1.22", "1.23", "1.24", "1.25", "1.26", "1.27", "1.28", "1.29", "1.30", "1.31", "2.1", "2.2", "2.3", "2.4", "2.5"
-    ],
-    cities: [
-        {
-            name: "武汉",
-            data: [258, 105, 62, 70, 77, 46, 80, 892, 315, 356, 378, 576, 894, 1033, 1242, 1967, 1766]
-        },
-        {
-            name: "黄石",
-            data: [0, 0, 0, 0, 0, 31, 5, 17, 33, 27, 55, 41, 43, 82, 71, 104, 57]
-        },
-        {
-            name: "十堰",
-            data: [0, 0, 0, 1, 4, 15, 20, 25, 23, 31, 31, 27, 35, 44, 35, 27, 35]
-        },
-        {
-            name: "襄阳",
-            data: [0, 0, 0, 0, 0, 2, 34, 34, 61, 32, 123, 61, 94, 107, 84, 103, 52]
-        },
-        {
-            name: "宜昌",
-            data: [0, 0, 0, 1, 0, 19, 11, 20, 12, 54, 50, 109, 77, 39, 60, 44, 67]
-        },
-        {
-            name: "荆州",
-            data: [0, 0, 6, 2, 2, 23, 14, 24, 30, 50, 70, 66, 46, 166, 114, 100, 88]
-        },
-        {
-            name: "荆门",
-            data: [0, 0, 1, 7, 13, 17, 52, 24, 28, 49, 36, 24, 78, 16, 55, 22, 86]
-        },
-        {
-            name: "鄂州",
-            data: [0, 0, 0, 0, 1, 0, 19, 37, 27, 39, 66, 38, 51, 28, 26, 50, 41]
-        },
-        {
-            name: "孝感",
-            data: [0, 0, 0, 22, 4, 29, 45, 73, 101, 125, 142, 87, 121, 169, 202, 342, 424]
-        },
-        {
-            name: "黄冈",
-            data: [12, 0, 0, 0, 52, 58, 32, 59, 111, 172, 77, 153, 276, 244, 176, 223, 162]
-        },
-        {
-            name: "咸宁",
-            data: [0, 0, 0, 0, 0, 43, 21, 27, 21, 18, 36, 40, 40, 50, 52, 36, 15]
-        },
-        {
-            name: "随州",
-            data: [0, 0, 0, 0, 5, 31, 16, 18, 46, 27, 85, 76, 80, 74, 183, 65, 128]
-        },
-        {
-            name: "恩施",
-            data: [0, 0, 0, 0, 11, 6, 8, 13, 13, 15, 9, 12, 18, 6, 12, 15, 6]
-        },
-        {
-            name: "仙桃",
-            data: [0, 0, 0, 2, 8, 1, 1, 15, 5, 23, 35, 7, 43, 29, 19, 37, 40]
-        },
-        {
-            name: "天门",
-            data: [0, 0, 0, 0, 3, 2, 8, 10, 11, 10, 23, 15, 17, 16, 2, 11, 10]
-        },
-        {
-            name: "潜江",
-            data: [0, 0, 0, 0, 0, 0, 5, 2, 1, 2, 2, 15, 8, 0, 9, 10, 10]
-        },
-        {
-            name: "神农架",
-            data: [0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, 3, 0, 0]
-        }
-    ]
-};
-</script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function(){
+let DAYS = [
+"1.20", "1.21", "1.22", "1.23", "1.24", "1.25", "1.26", "1.27", "1.28", "1.29", "1.30", "1.31", "2.1", "2.2", "2.3", "2.4", "2.5"
+];
 
-Highcharts.chart('chart1', {
-    title: {
-        text: '湖北省各地区新增确诊'
+let HUBEI_DATA = [
+    {
+        name: "武汉",
+        data: [258, 105, 62, 70, 77, 46, 80, 892, 315, 356, 378, 576, 894, 1033, 1242, 1967, 1766]
     },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
+    {
+        name: "黄石",
+        data: [0, 0, 0, 0, 0, 31, 5, 17, 33, 27, 55, 41, 43, 82, 71, 104, 57]
     },
-    plotOptions: {
+    {
+        name: "十堰",
+        data: [0, 0, 0, 1, 4, 15, 20, 25, 23, 31, 31, 27, 35, 44, 35, 27, 35]
     },
-    yAxis: {
-        title: {
-            text: '人数'
-        }
+    {
+        name: "襄阳",
+        data: [0, 0, 0, 0, 0, 2, 34, 34, 61, 32, 123, 61, 94, 107, 84, 103, 52]
     },
-    xAxis: {
-        categories: HUBEI_DATA.days
+    {
+        name: "宜昌",
+        data: [0, 0, 0, 1, 0, 19, 11, 20, 12, 54, 50, 109, 77, 39, 60, 44, 67]
     },
-    series: HUBEI_DATA["cities"],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
+    {
+        name: "荆州",
+        data: [0, 0, 6, 2, 2, 23, 14, 24, 30, 50, 70, 66, 46, 166, 114, 100, 88]
+    },
+    {
+        name: "荆门",
+        data: [0, 0, 1, 7, 13, 17, 52, 24, 28, 49, 36, 24, 78, 16, 55, 22, 86]
+    },
+    {
+        name: "鄂州",
+        data: [0, 0, 0, 0, 1, 0, 19, 37, 27, 39, 66, 38, 51, 28, 26, 50, 41]
+    },
+    {
+        name: "孝感",
+        data: [0, 0, 0, 22, 4, 29, 45, 73, 101, 125, 142, 87, 121, 169, 202, 342, 424]
+    },
+    {
+        name: "黄冈",
+        data: [12, 0, 0, 0, 52, 58, 32, 59, 111, 172, 77, 153, 276, 244, 176, 223, 162]
+    },
+    {
+        name: "咸宁",
+        data: [0, 0, 0, 0, 0, 43, 21, 27, 21, 18, 36, 40, 40, 50, 52, 36, 15]
+    },
+    {
+        name: "随州",
+        data: [0, 0, 0, 0, 5, 31, 16, 18, 46, 27, 85, 76, 80, 74, 183, 65, 128]
+    },
+    {
+        name: "恩施",
+        data: [0, 0, 0, 0, 11, 6, 8, 13, 13, 15, 9, 12, 18, 6, 12, 15, 6]
+    },
+    {
+        name: "仙桃",
+        data: [0, 0, 0, 2, 8, 1, 1, 15, 5, 23, 35, 7, 43, 29, 19, 37, 40]
+    },
+    {
+        name: "天门",
+        data: [0, 0, 0, 0, 3, 2, 8, 10, 11, 10, 23, 15, 17, 16, 2, 11, 10]
+    },
+    {
+        name: "潜江",
+        data: [0, 0, 0, 0, 0, 0, 5, 2, 1, 2, 2, 15, 8, 0, 9, 10, 10]
+    },
+    {
+        name: "神农架",
+        data: [0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 0, 0, 0, 3, 0, 0]
     }
-});
+];
 
 let HUBEI_DATA2 = JSON.parse(JSON.stringify(HUBEI_DATA));
-let cities = HUBEI_DATA2.cities;
-for (var i = 0; i < cities.length; i++) {
-    let d = cities[i].data;
+for (var i = 0; i < HUBEI_DATA2.length; i++) {
+    let d = HUBEI_DATA2[i].data;
     for (var j = 1; j < d.length; j++) {
         d[j] = d[j] + d[j - 1];
     }
 }
 
-Highcharts.chart('chart2', {
-    chart: {
-        type: 'area'
+let PATIENTS_DATA = [
+    {
+        name: "治愈",
+        data: [25, 28, 28, 31, 32, 42, 44, 47, 80, 90, 116, 166, 215, 295, 396, 520, 633]
     },
-    title: {
-        text: '湖北省各地区累计确诊'
+    {
+        name: "死亡",
+        data: [6, 9, 17, 24, 39, 52, 76, 100, 125, 162, 204, 249, 294, 350, 414, 479, 549]
     },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
+    // {
+    //     name: "住院",
+    //     data: [239, 338, 399, 494, 658, 958, 1304, 2567, 3349, 4334, 5486, 6738, 8565, 9618, 10990, 12627, 14314]
+    // },
+    {
+        name: "重症",
+        data: [51, 65, 71, 106, 100, 129, 221, 563, 671, 711, 804, 956, 1118, 1223, 1567, 1809, 2328]
     },
-    plotOptions: {
+    {
+        name: "危重症",
+        data: [12, 23, 24, 23, 57, 57, 69, 127, 228, 277, 290, 338, 444, 478, 576, 711, 756]
+    }
+];
+
+let PATIENTS_DATA2 = [
+    {
+        name: "累计追踪密切接触者",
+        data: [1070, 1181, 2556, 3653, 5682, 7989, 10394, 16904, 22095, 28780, 35144, 41075, 48571, 56088, 68988, 81039, 90997]
+    },
+    {
+        name: "尚在接受医学观察",
+        data: [331, 426, 1693, 2776, 4711, 6904, 9103, 15559, 20366, 26632, 32340, 36838, 43121, 48171, 58544, 66764, 64127]
+    },
+    {
+        name: "已解除医学观察",
+        data: new Array(DAYS.length)
+    }
+];
+
+for (var i = 0; i < DAYS.length; i++) {
+    PATIENTS_DATA2[2].data[i] = PATIENTS_DATA2[0].data[i] - PATIENTS_DATA2[1].data[i];
+}
+
+</script>
+<script type="text/javascript">
+
+function def_chart($chart, $type, $title, $data, $plotOptions) {
+
+    Highcharts.chart($chart, {
+        chart: {
+            type: $type
+        },
+        title: {
+            text: $title
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: $plotOptions,
+        yAxis: {
+            title: {
+                text: '人数'
+            }
+        },
+        xAxis: {
+            categories: DAYS
+        },
+        series: $data,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    def_chart('chart1', 'line', '湖北省各地区新增确诊', HUBEI_DATA, {});
+    def_chart('chart2', 'area', '湖北省各地区累计确诊', HUBEI_DATA2, {
         area: {
             stacking: 'normal',
             lineColor: '#666666',
@@ -167,34 +204,12 @@ Highcharts.chart('chart2', {
                 lineColor: '#666666'
             }
         }
-    },
-    yAxis: {
-        title: {
-            text: '人数'
-        }
-    },
-    xAxis: {
-        categories: HUBEI_DATA2.days
-    },
-    series: HUBEI_DATA2["cities"],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    }
-});
+    });
+    def_chart('chart3', 'line', '湖北省病例情况', PATIENTS_DATA, {});
+    def_chart('chart4', 'line', '湖北省医学观察情况', PATIENTS_DATA2, {});
 
 });
+
 </script>
 </body>
 </html>
