@@ -1,9 +1,9 @@
 ---
-layout:   post
-title:    password as short as possible
 date:     2018-04-22
+title:    password as short as possible
 summary:  密码越短越好
-category: password，hash
+tags: ["password", "hash"]
+categories: ["coding"]
 ---
 
 据传12306网站的密码泄漏了，我决定改一下密码。然而尝试了几次密码才搞对了，最后改密码也不知道改成什么好，

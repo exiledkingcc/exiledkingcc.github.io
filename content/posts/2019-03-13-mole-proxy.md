@@ -1,9 +1,8 @@
 ---
-layout:   post
-title:    mole proxy
 date:     2019-03-13
+title:    mole proxy
 summary:  a simple encrypted proxy based on socks5, inspired by shadowsocks
-category: proxy，python3
+categories: ["coding"]
 ---
 
 前段时间用`Python`写了一个简单的加密代理代理程序，是仿照`shadowsocks`写的。它是可以work的，

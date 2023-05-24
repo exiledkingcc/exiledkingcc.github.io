@@ -1,10 +1,9 @@
 ---
-layout:   post
-title:    how busybox symlink works
 date:     2016-10-22
+title:    how busybox symlink works
 summary:  busybox通过软连接的名字就可以运行不同的程序
-category: linux
-tags:     linux busybox python
+tags: ["linux", "python"]
+categories: ["coding"]
 ---
 
 busybox通过软连接的名字就可以运行不同的程序。

@@ -1,0 +1,37 @@
+baseURL = "https://exiledkingcc.github.io"
+languageCode = 'zh-CN'
+title = "The Land of The Exile"
+
+theme = "yinyang"
+DefaultContentLanguage = "cn"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    guessSyntax = true
+    noClasses = true
+    style = "bw"
+    tabWidth = 2
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+[params]
+mainSections = ["posts"]
+headTitle = "The Land of The Exile"
+
+postHeaderContent = ""
+extraCSSFiles = []
+
+[[params.socials]]
+name = "About Me"
+link = "https://exiledkingcc.github.io"
+
+[[params.socials]]
+name = "Github"
+link = "https://github.com/exiledkingcc"
+
+
